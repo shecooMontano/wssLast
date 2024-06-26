@@ -2,7 +2,7 @@ const WebSocket = require('ws');
 const axios = require('axios');
 const os = require('os');
 const network = require('network');
-const port = 80;
+const port = 8080;
 
 const server = new WebSocket.Server({ port });
 
