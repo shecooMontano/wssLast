@@ -2,9 +2,9 @@ const WebSocket = require('ws');
 const axios = require('axios');
 const os = require('os');
 const network = require('network');
+const port = 80;
 
-
-const server = new WebSocket.Server({ port: 8080 });
+const server = new WebSocket.Server({ port });
 
 server.on('connection', (ws) => {
     console.log('Client connected');
@@ -31,6 +31,6 @@ network.get_active_interface((err, iface) => {
         console.error('Error getting network interface:', err);
     } else {
         const ipAddress = iface.ip_address;
-        console.log(`WebSocket server is running on ws://${ipAddress}:8765`);
+        console.log(`WebSocket server is running on ws://${ipAddress}:${port}`);
     }
 });
