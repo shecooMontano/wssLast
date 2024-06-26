@@ -1,5 +1,5 @@
 const WebSocket = require('ws');
-const socket = new WebSocket('ws://10.128.0.2:8765');
+const socket = new WebSocket('ws://148.213.18.234:8765');
 
 socket.onmessage = function(event) {
     console.log('Data received from server:', event.data);
