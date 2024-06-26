@@ -1,5 +1,7 @@
 const WebSocket = require('ws');
 const axios = require('axios');
+const os = require('os');
+const network = require('network');
 
 const server = new WebSocket.Server({ port: 8765 });
 
@@ -9,7 +11,6 @@ server.on('connection', (ws) => {
     const sendTickerData = async () => {
         try {
             const response = await axios.get('https://api.bitso.com/v3/ticker/');
-            console.log(response)
             ws.send(JSON.stringify(response.data));
         } catch (error) {
             console.error('Error fetching data from Bitso API:', error);
@@ -24,4 +25,11 @@ server.on('connection', (ws) => {
     });
 });
 
-console.log('WebSocket server is running on ws://localhost:8765');
+network.get_active_interface((err, iface) => {
+    if (err) {
+        console.error('Error getting network interface:', err);
+    } else {
+        const ipAddress = iface.ip_address;
+        console.log(`WebSocket server is running on ws://${ipAddress}:8765`);
+    }
+});

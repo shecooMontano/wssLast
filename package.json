@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "axios": "^1.7.2",
+    "network": "^0.7.0",
     "ws": "^8.17.1"
   }
 }
