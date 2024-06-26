@@ -9,6 +9,7 @@ server.on('connection', (ws) => {
     const sendTickerData = async () => {
         try {
             const response = await axios.get('https://api.bitso.com/v3/ticker/');
+            console.log(response)
             ws.send(JSON.stringify(response.data));
         } catch (error) {
             console.error('Error fetching data from Bitso API:', error);
