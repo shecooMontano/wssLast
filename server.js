@@ -18,7 +18,7 @@ server.on('connection', (ws) => {
         }
     };
 
-    const intervalId = setInterval(sendTickerData, 1000);
+    const intervalId = setInterval(sendTickerData, 1300);
 
     ws.on('close', () => {
         console.log('Client disconnected');

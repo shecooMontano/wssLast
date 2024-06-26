@@ -1,5 +1,5 @@
 const WebSocket = require('ws');
-const socket = new WebSocket('ws://34.16.122.77:8080');
+const socket = new WebSocket('ws://34.68.206.197:8080');
 
 socket.onmessage = function(event) {
     console.log('Data received from server:', event.data);
