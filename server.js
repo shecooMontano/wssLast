@@ -4,7 +4,7 @@ const os = require('os');
 const network = require('network');
 
 
-const server = new WebSocket.Server({ port: 80 });
+const server = new WebSocket.Server({ port: 8080 });
 
 server.on('connection', (ws) => {
     console.log('Client connected');
